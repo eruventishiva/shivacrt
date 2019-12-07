@@ -1,0 +1,40 @@
+control statements:
+A.conditionla control structures
+1)for loop
+2)while loop
+3)do-while loop
+
+B.unconditional control structres
+4)break
+5)continue
+
+C.unconditional uncontrol structres
+6)goto
+
+1)For loop
+syntax:
+
+for(intialization;cond;inc;dec)
+    statement;
+for(intialization;cond;inc;dec)
+{
+statement-1;
+statement-2;
+....statement-x;
+}
+
+2)While looop
+syntax:
+
+while(condition)
+{
+ statements
+}
+
+3)do-while loop:
+------------------------
+do
+{
+//statement;
+}
+while(condition);
