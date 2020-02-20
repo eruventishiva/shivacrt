@@ -1,0 +1,108 @@
+#include<stdio.h>
+#include<stdlib.h>
+void push();
+void pop();
+void display();
+struct node
+{
+int info;
+struct node *next;
+};
+struct node *top=NULL;
+int main()
+{
+int c;
+do
+{
+printf("enter 1 for insert\nenter 2 for delete\nenter 3 for display\nenter 4 for exit");
+scanf("%d",&c);
+switch(c)
+{
+case 1:push();
+break;
+case 2:pop();
+break;
+case 3:display();
+break;
+case 4:exit(0);
+default:printf("wrong choice");
+}
+}while(c!=4);
+}
+void push()
+{
+int item;
+struct node *temp,*ptr=top;
+printf("enter a number");
+scanf("%d",&item);
+if(top==NULL)
+{
+top=(struct node*)malloc(sizeof(struct node));
+top->info=item;
+top->next=NULL;
+}
+
+else
+{
+struct node *temp, *ptr=top;
+temp=(struct node*)malloc(sizeof(struct node));
+temp->info=item;
+temp->next=NULL;
+while(ptr->next!=NULL)
+{
+  ptr=ptr->next;
+}
+ptr->next=temp;
+}
+}
+
+
+void pop()
+{
+struct node *dnode,*p1,*p2;
+if(top==NULL)
+{
+printf("\n linked list is empty\n");
+return;
+}
+else if(top->next==NULL)
+{
+dnode=top;
+top=NULL;
+}
+else
+{
+  p1=top;
+  p2=top->next;
+  while(p2->next!=NULL)
+  {
+      p1=p2;
+      p2=p2->next;
+  }
+
+  dnode=p2;
+  p1->next=NULL;
+}
+
+printf("deleted element is %d:",dnode->info);
+  free(dnode);
+}
+
+void display()
+{
+  if(top==NULL)
+  {
+      printf("linked list is empty");
+      return;
+  }
+  else
+  {
+struct node *ptr;
+ptr=top;
+while(ptr!=NULL)
+{
+printf("%d",ptr->info);
+ptr=ptr->next;
+}
+}
+}
